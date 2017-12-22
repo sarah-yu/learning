@@ -36,33 +36,34 @@ export default {
     return {
       titleText: '',
       projectText: '',
-      isCreating: false,
-    };
+      isCreating: false
+    }
   },
   methods: {
     openForm() {
-      this.isCreating = true;
+      this.isCreating = true
     },
     closeForm() {
-      this.isCreating = false;
+      this.isCreating = false
     },
     sendForm() {
       if (this.titleText.length > 0 && this.projectText.length > 0) {
-        const title = this.titleText;
-        const project = this.projectText;
-        const done = false;
+        const title = this.titleText
+        const project = this.projectText
+        const done = false
 
         this.$emit('add-toDo', {
           title,
           project,
-          done,
-        });
-        this.newToDoText = '';
+          done
+        })
       }
-      this.isCreating = false;
-    },
-  },
-};
+      this.titleText = ''
+      this.projectText = ''
+      this.isCreating = false
+    }
+  }
+}
 </script>
 
 <style>

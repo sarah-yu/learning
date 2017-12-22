@@ -9,15 +9,17 @@
 
 <script>
 // import the components you want to use
-import ToDoList from './components/ToDoList';
-import NewToDo from './components/NewToDo';
+import sweetalert from 'sweetalert'
+
+import ToDoList from './components/ToDoList'
+import NewToDo from './components/NewToDo'
 
 export default {
   name: 'app',
   // reference the components you want to use in the components property
   components: {
     ToDoList,
-    NewToDo,
+    NewToDo
   },
   // provide data to the template
   data() {
@@ -26,36 +28,37 @@ export default {
         {
           title: 'wrap christmas presents',
           project: 'home',
-          done: false,
+          done: false
         },
         {
           title: 'a little life by hanya yanagihara',
           project: 'read',
-          done: false,
+          done: false
         },
         {
           title: 'learn SASS',
           project: 'learn',
-          done: false,
+          done: false
         },
         {
           title: "finish vivi's website",
           project: 'vvsundays',
-          done: false,
-        },
-      ],
-    };
+          done: false
+        }
+      ]
+    }
   }, // end data
   methods: {
     addToDo({ title, project, done }) {
       this.toDos.push({
         title,
         project,
-        done,
-      });
-    },
-  },
-};
+        done
+      })
+      sweetalert('Added!', 'You have stuff to do!', 'success')
+    }
+  }
+}
 </script>
 
 <style>

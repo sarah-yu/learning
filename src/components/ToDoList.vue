@@ -12,6 +12,8 @@
 </template>
 
 <script type = 'text/javascript' >
+import sweetalert from 'sweetalert'
+
 import ToDo from './ToDo'
 
 export default {
@@ -25,10 +27,12 @@ export default {
     deleteToDo(toDo) {
       const toDoIndex = this.toDos.indexOf(toDo)
       this.toDos.splice(toDoIndex, 1)
+      sweetalert('Deleted!', 'One less thing to do!', 'success')
     },
     completeToDo(toDo) {
       const toDoIndex = this.toDos.indexOf(toDo)
       this.toDos[toDoIndex].done = true
+      sweetalert('Yay!', 'You did something!', 'success')
     }
   }
 }
