@@ -23,6 +23,7 @@
         </div>
       </div><!-- .content -->
 
+      <!--  v-show: show complete or incomplete -->
       <div class='ui bottom attached green basic button' v-show="todo.done">
         Completed
       </div>
