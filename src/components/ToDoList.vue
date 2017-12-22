@@ -3,11 +3,10 @@
 
 <template>
   <div>
-    <ul>
-        <li> Todo A </li>
-        <li> Todo B </li>
-        <li> Todo C </li>
-    </ul>
+    <p>Complete: {{todos.filter(todo => {return todo.done}).length}}</p>
+    <p>Incomplete: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+
+
   </div>
 </template>
 
