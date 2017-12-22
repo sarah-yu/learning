@@ -1,9 +1,14 @@
 <template>
   <div id='app'>
-    <!--  pass data from main component to the ToDoList component using v-bind directive -->
-    <!-- v-bind directive takes the toDos argument and binds the element's toDos attribuet to the value of the expression toDos -->
-    <to-do-list v-bind:toDos='toDos'></to-do-list>
-    <new-to-do v-on:add-toDo='addToDo'></new-to-do>
+    <header>
+      <h1>Vue.js To Do List</h1>
+      <div class='to-dos-summary'>
+        <!--  pass data from main component to the ToDoList component using v-bind directive -->
+        <!-- v-bind directive takes the toDos argument and binds the element's toDos attribuet to the value of the expression toDos -->
+        <to-do-list v-bind:toDos='toDos'></to-do-list>
+        <new-to-do v-on:add-toDo='addToDo'></new-to-do>
+      </div>
+    </header>
   </div>
 </template>
 
@@ -62,5 +67,12 @@ export default {
 </script>
 
 <style>
+  header {
+    margin: 30px;
+    text-align: center;
+  }
 
+  h1 {
+    margin: 20px 0;
+  }
 </style>
