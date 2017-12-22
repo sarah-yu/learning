@@ -22,7 +22,7 @@ Vue.js was created by ex-Google employee Evan You. It was released in February 2
 
 ## My Thoughts
 
-So far, Vue.js seems pretty fun to use and easier to grasp compared to React. Vue.js also uses components and props, so my understanding of React definitely helped me learn Vue.js. The components are structured differently and is taking some time to get used to.
+So far, Vue.js seems pretty fun to use and easier to grasp compared to React. Vue.js also uses components and props, so my understanding of React definitely helped me learn Vue.js. The components are structured differently and is taking some time to get used to. Vue.js also uses directives, which are some special token in the markup that tells the library to do something to a DOM element. This was new to me as it does not exist in React.
 
 
 ## Resources
