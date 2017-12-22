@@ -12,7 +12,10 @@
 </template>
 
 <script type = "text/javascript" >
-export default {};
+export default {
+  // allow ToDoList component to take todos as props
+  props: ['todos'],
+};
 </script>
 
 <style>
