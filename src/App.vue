@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id='app'>
     <!--  pass data from main component to the ToDoList component using v-bind directive -->
     <!-- v-bind directive takes the todos argument and binds the element's todos attribuet to the value of the expression todos -->
     <to-do-list v-bind:todos='todos'></to-do-list>
@@ -28,7 +28,7 @@ export default {
         {
           title: 'a little life by hanya yanagihara',
           project: 'read',
-          done: true,
+          done: false,
         },
         {
           title: 'learn SASS',
