@@ -7,7 +7,7 @@
     <p>Incomplete: {{todos.filter(todo => {return todo.done === false}).length}}</p>
 
     <!-- pass data to the ToDo component -->
-    <to-do  v-for='todo in todos' v-bind:todo='todo' :key='todo.id'></to-do>
+    <to-do  v-for='(todo, index) in todos' v-bind:todo='todo' v-bind:index='index' :key='todo.id'></to-do>
   </div>
 </template>
 
