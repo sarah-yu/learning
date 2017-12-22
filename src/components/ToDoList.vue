@@ -7,27 +7,31 @@
     <p>Incomplete: {{toDos.filter(toDo => {return toDo.done === false}).length}}</p>
 
     <!-- pass data and methods to the ToDo component -->
-    <to-do  v-for='(toDo, index) in toDos' v-bind:toDo='toDo' v-bind:index='index' :key='toDo.id' v-on:delete-toDo='deleteToDo'></to-do>
+    <to-do  v-for='(toDo, index) in toDos' v-bind:toDo='toDo' v-bind:index='index' :key='toDo.id' v-on:delete-toDo='deleteToDo' v-on:complete-toDo='completeToDo'></to-do>
   </div>
 </template>
 
 <script type = 'text/javascript' >
-import ToDo from './ToDo';
+import ToDo from './ToDo'
 
 export default {
   // allow ToDoList component to take toDos as props
   props: ['toDos'],
   components: {
-    ToDo,
+    ToDo
   },
   methods: {
     // event handler for the toDo item emitted from ToDo component
     deleteToDo(toDo) {
-      const toDoIndex = this.toDos.indexOf(toDo);
-      this.toDos.splice(toDoIndex, 1);
+      const toDoIndex = this.toDos.indexOf(toDo)
+      this.toDos.splice(toDoIndex, 1)
     },
-  },
-};
+    completeToDo(toDo) {
+      const toDoIndex = this.toDos.indexOf(toDo)
+      this.toDos[toDoIndex].done = true
+    }
+  }
+}
 </script>
 
 <style>

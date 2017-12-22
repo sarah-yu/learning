@@ -41,7 +41,7 @@
     <div class='ui bottom attached green basic button' v-show='toDo.done && !isEditing' disabled>
       Completed
     </div>
-    <div class='ui bottom attached red basic button' v-show='!toDo.done && !isEditing'>
+    <div class='ui bottom attached red basic button' v-on:click='completeToDo(toDo)' v-show='!toDo.done && !isEditing'>
       Complete
     </div>
   </div>
@@ -52,22 +52,25 @@ export default {
   props: ['toDo'],
   data() {
     return {
-      isEditing: false,
-    };
+      isEditing: false
+    }
   },
   methods: {
     // emit delete-toDo event to the ToDoList parent component and pass the toDo item to be deleted
     deleteToDo(toDo) {
-      this.$emit('delete-toDo', toDo);
+      this.$emit('delete-toDo', toDo)
+    },
+    completeToDo(toDo) {
+      this.$emit('complete-toDo', toDo)
     },
     showForm() {
-      this.isEditing = true;
+      this.isEditing = true
     },
     hideForm() {
-      this.isEditing = false;
-    },
-  },
-};
+      this.isEditing = false
+    }
+  }
+}
 </script>
 
 <style>
