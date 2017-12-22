@@ -14,6 +14,9 @@
         <span class='right floated edit icon' v-on:click='showForm'>
           <i class='edit icon'></i>
         </span>
+        <span class='right floated trash icon' v-on:click='deleteTodo(todo)'>
+          <i class='trash icon'></i>
+        </span>
       </div>
     </div><!-- .content -->
 
@@ -53,6 +56,10 @@ export default {
     };
   },
   methods: {
+    // emit delete-todo event to the ToDoList parent component and pass the todo item to be deleted
+    deleteTodo(todo) {
+      this.$emit('delete-todo', todo);
+    },
     showForm() {
       this.isEditing = true;
     },
