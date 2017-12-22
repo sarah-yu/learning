@@ -3,11 +3,11 @@
 
 <template>
   <div>
-    <p>Complete: {{todos.filter(todo => {return todo.done}).length}}</p>
-    <p>Incomplete: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    <p>Complete: {{toDos.filter(toDo => {return toDo.done}).length}}</p>
+    <p>Incomplete: {{toDos.filter(toDo => {return toDo.done === false}).length}}</p>
 
     <!-- pass data and methods to the ToDo component -->
-    <to-do  v-for='(todo, index) in todos' v-bind:todo='todo' v-bind:index='index' :key='todo.id' v-on:delete-todo='deleteTodo'></to-do>
+    <to-do  v-for='(toDo, index) in toDos' v-bind:toDo='toDo' v-bind:index='index' :key='toDo.id' v-on:delete-toDo='deleteToDo'></to-do>
   </div>
 </template>
 
@@ -15,16 +15,16 @@
 import ToDo from './ToDo';
 
 export default {
-  // allow ToDoList component to take todos as props
-  props: ['todos'],
+  // allow ToDoList component to take toDos as props
+  props: ['toDos'],
   components: {
     ToDo,
   },
   methods: {
-    // event handler for the todo item emitted from ToDo component
-    deleteTodo(todo) {
-      const todoIndex = this.todos.indexOf(todo);
-      this.todos.splice(todoIndex, 1);
+    // event handler for the toDo item emitted from ToDo component
+    deleteToDo(toDo) {
+      const toDoIndex = this.toDos.indexOf(toDo);
+      this.toDos.splice(toDoIndex, 1);
     },
   },
 };

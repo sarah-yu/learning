@@ -3,18 +3,18 @@
     <!--  show the to do item when we are not in editing mode -->
     <div class='content' v-show='!isEditing'>
       <div class='header'>
-        {{todo.title}}
+        {{toDo.title}}
       </div>
 
       <div class='meta'>
-        {{todo.project}}
+        {{toDo.project}}
       </div>
 
       <div class='extra content'>
         <span class='right floated edit icon' v-on:click='showForm'>
           <i class='edit icon'></i>
         </span>
-        <span class='right floated trash icon' v-on:click='deleteTodo(todo)'>
+        <span class='right floated trash icon' v-on:click='deleteToDo(toDo)'>
           <i class='trash icon'></i>
         </span>
       </div>
@@ -25,11 +25,11 @@
       <div class='ui form'>
         <div class='field'>
           <label>Title</label>
-          <input type='text' v-model='todo.title'>
+          <input type='text' v-model='toDo.title'>
         </div>
         <div class='field'>
           <label>Project</label>
-          <input type='text' v-model='todo.project'>
+          <input type='text' v-model='toDo.project'>
         </div>
         <div class='ui two button attached buttons'>
           <button class='ui basic blue button' v-on:click='hideForm'>Close X</button>
@@ -38,10 +38,10 @@
     </div>
 
     <!--  v-show: show complete or incomplete -->
-    <div class='ui bottom attached green basic button' v-show='todo.done && !isEditing' disabled>
+    <div class='ui bottom attached green basic button' v-show='toDo.done && !isEditing' disabled>
       Completed
     </div>
-    <div class='ui bottom attached red basic button' v-show='!todo.done && !isEditing'>
+    <div class='ui bottom attached red basic button' v-show='!toDo.done && !isEditing'>
       Complete
     </div>
   </div>
@@ -49,16 +49,16 @@
 
 <script>
 export default {
-  props: ['todo'],
+  props: ['toDo'],
   data() {
     return {
       isEditing: false,
     };
   },
   methods: {
-    // emit delete-todo event to the ToDoList parent component and pass the todo item to be deleted
-    deleteTodo(todo) {
-      this.$emit('delete-todo', todo);
+    // emit delete-toDo event to the ToDoList parent component and pass the toDo item to be deleted
+    deleteToDo(toDo) {
+      this.$emit('delete-toDo', toDo);
     },
     showForm() {
       this.isEditing = true;

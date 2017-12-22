@@ -1,25 +1,28 @@
 <template>
   <div id='app'>
     <!--  pass data from main component to the ToDoList component using v-bind directive -->
-    <!-- v-bind directive takes the todos argument and binds the element's todos attribuet to the value of the expression todos -->
-    <to-do-list v-bind:todos='todos'></to-do-list>
+    <!-- v-bind directive takes the toDos argument and binds the element's toDos attribuet to the value of the expression toDos -->
+    <to-do-list v-bind:toDos='toDos'></to-do-list>
+    <new-to-do v-on:add-toDo='addToDo'></new-to-do>
   </div>
 </template>
 
 <script>
 // import the components you want to use
 import ToDoList from './components/ToDoList';
+import NewToDo from './components/NewToDo';
 
 export default {
   name: 'app',
   // reference the components you want to use in the components property
   components: {
     ToDoList,
+    NewToDo,
   },
   // provide data to the template
   data() {
     return {
-      todos: [
+      toDos: [
         {
           title: 'wrap christmas presents',
           project: 'home',
@@ -42,6 +45,15 @@ export default {
         },
       ],
     };
+  }, // end data
+  methods: {
+    addToDo({ title, project, done }) {
+      this.toDos.push({
+        title,
+        project,
+        done,
+      });
+    },
   },
 };
 </script>
